@@ -1,7 +1,7 @@
 # counting
 Counting app for the Cross-Platform course.
 
-Fork this repository _or_ download the v1 release and then submit the modified version on Classroom.
+Fork this repository and implement your improvements.
 
 To run:
 1) Install dependencies: ```npm install```
