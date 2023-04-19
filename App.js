@@ -6,6 +6,7 @@ import {
   KeyboardAvoidingView,
   View,
   Platform,
+  Keyboard,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -27,15 +28,28 @@ export default function App() {
 
   const changeCounts = (amount, index) => {
     const newState = [...countables];
-    newState[index].count += amount;
+    const newCount = newState[index].count + amount;
+    if (newCount < 0) {
+      return;
+    }
+    newState[index].count = newCount;
     setCountables(newState);
     saveCountables(newState);
   };
 
   const addNewCountable = (name) => {
+    if (!name.trim()) {
+      return;
+    }
+    const exists = countables.some((c) => c.name === name);
+    if (exists) {
+      return;
+    }
     const newState = [...countables, { name, count: 0 }];
+    newState.sort((a, b) => a.name.localeCompare(b.name));
     setCountables(newState);
     saveCountables(newState);
+    Keyboard.dismiss();
   };
 
   // https://medium.com/@nickyang0501/keyboardavoidingview-not-working-properly-c413c0a200d4
