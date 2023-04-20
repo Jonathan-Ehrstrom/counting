@@ -1,9 +1,7 @@
-# counting
-Counting app for the Cross-Platform course.
-
-Fork this repository and implement your improvements.
-
-To run:
-1) Install dependencies: ```npm install```
-
-2) Start the app: ```npx expo start```
+- Improved the layout of AddRow
+- Prevented duplicate names
+- Prevented negative points
+- Prevented items with empty names
+- Tried to clear textinput with setName("") but it seems to have failed
+- Made it automatically hide the soft keyboard after adding an item
+- Sort the list according to names
